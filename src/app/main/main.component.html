@@ -1,5 +1,10 @@
 <div>
-    <form id="searchWeather">
-        
-    </form>
+    <div id="searchWeather">
+        <input #location type="text">
+        <button (click)="searchWeather(location.value)">search</button>
+    </div>
+    <div>
+        <span>{{ data?.address }}</span>
+        <span>{{ data?.currentConditions.temp }}</span>
+    </div>
 </div>

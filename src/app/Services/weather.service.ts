@@ -15,10 +15,11 @@ export class WeatherService {
 
   getWeather(location: string): Observable<any> {
     const date = this.getCurrentDate();
+    console.log(`${this.apiUrl}/${location}/${date}?key=${this.key}`);
     return this.http.get<any>(`${this.apiUrl}/${location}/${date}?key=${this.key}`)
   }
 
-  getCurrentDate(): string {
+  private getCurrentDate(): string {
     const today = new Date();
     return today.toISOString().split('T')[0];
   }
