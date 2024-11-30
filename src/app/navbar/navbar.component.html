@@ -4,7 +4,10 @@
         <button (click)="searchWeather(location.value)">search</button>
     </div>
     <div>
-        <span>{{ data?.address }}</span>
-        <span>{{ data?.currentConditions.temp }}</span>
+        <app-weather-display 
+        [address]="weatherData.address" 
+        [temp]="weatherData.temp"
+        [condition]="weatherData.condition">
+        </app-weather-display>
     </div>
 </div>

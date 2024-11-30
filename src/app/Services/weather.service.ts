@@ -23,7 +23,7 @@ export class WeatherService {
 
   private getCurrentDate(): string {
     const today = new Date();
-    return today.toISOString().split('T')[0];
+    return today.toLocaleDateString('en-CA');
   }
 
   private handleError(error: HttpErrorResponse) {
