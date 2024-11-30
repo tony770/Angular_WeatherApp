@@ -24,7 +24,7 @@ export class NavbarComponent {
           address: data.address,
           temp: data.currentConditions.temp,
           condition: weatherCondition,
-          icon: data.currentConditions.icon,
+          icon: 'icons/' + data.currentConditions.icon + '.png',
         }
         this.weatherData = newData;
         console.log(this.weatherData);
