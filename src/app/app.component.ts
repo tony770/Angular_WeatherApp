@@ -5,7 +5,7 @@ import { WeatherDisplayComponent } from './weather-display/weather-display.compo
 
 @Component({
   selector: 'app-root',
-  imports: [NavbarComponent, WeatherDisplayComponent],
+  imports: [NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

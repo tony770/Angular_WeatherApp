@@ -1,0 +1,16 @@
+.main {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 1fr 4fr;
+    justify-content: center;
+}
+
+.searchBar {
+    margin-top: auto;
+}
+
+.weatherDisplay {
+    text-align: center;
+}

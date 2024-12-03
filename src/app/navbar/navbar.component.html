@@ -1,9 +1,9 @@
-<div>
-    <div id="searchWeather">
+<div class="main">
+    <div class="searchBar">
         <input #location type="text">
         <button (click)="searchWeather(location.value)">search</button>
     </div>
-    <div>
+    <div class="weatherDisplay">
         <app-weather-display 
         [address]="weatherData.address" 
         [temp]="weatherData.temp"

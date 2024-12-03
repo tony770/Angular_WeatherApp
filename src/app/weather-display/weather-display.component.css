@@ -1,0 +1,24 @@
+div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.address {
+    font-size: 40px;
+    margin: 20px 0;
+}
+
+.temp {
+    font-size: 30px;
+}
+
+.condition {
+    font-size: 30px;
+}
+
+.icon {
+    align-self: center;
+    width: 70%;
+    height: auto;
+}

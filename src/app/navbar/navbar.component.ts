@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../Services/weather.service';
 import { CommonModule } from '@angular/common';
 import { WeatherDisplayComponent } from '../weather-display/weather-display.component';
@@ -10,11 +10,21 @@ import { weatherData } from '../weatherdata.interface';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
   errorMessage: string = '';
   weatherData: weatherData = {} as weatherData;
+  placeholderData: weatherData = {
+    address: 'Tokyo',
+    temp: 37,
+    condition: 'windy',
+    icon: 'icons/wind.png'
+  }
 
   constructor(private weatherservice: WeatherService) {}
+
+  ngOnInit(): void {
+      this.weatherData = this.placeholderData;
+  }
 
   searchWeather(location: string): void {
     this.weatherservice.getWeather(location).subscribe({
