@@ -1,7 +1,7 @@
 <div class="main">
     <div class="searchBar">
-        <input #location type="text">
-        <button (click)="searchWeather(location.value)">search</button>
+        <input #location type="text" class="searchInput">
+        <button (click)="searchWeather(location.value)" class="searchBtn">🔍</button>
     </div>
     <div class="weatherDisplay">
         <app-weather-display 

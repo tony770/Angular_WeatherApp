@@ -30,8 +30,9 @@ export class NavbarComponent implements OnInit{
     this.weatherservice.getWeather(location).subscribe({
       next: (data) => {
         const weatherCondition = this.getFirstCondition(data.currentConditions.conditions);
+        const address = this.getResolvedAddress(data.resolvedAddress);
         const newData: weatherData = {
-          address: data.address,
+          address: address,
           temp: data.currentConditions.temp,
           condition: weatherCondition,
           icon: 'icons/' + data.currentConditions.icon + '.png',
@@ -47,5 +48,9 @@ export class NavbarComponent implements OnInit{
 
   getFirstCondition(conditions: string) {
     return conditions.split(",").map(condition => condition.trim())[0];
+  }
+
+  getResolvedAddress(addresses: string) {
+    return addresses.split(", ").slice(0, -1).join(", ");
   }
 }
