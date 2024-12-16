@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, viewChild } from '@angular/core';
 import { WeatherService } from '../Services/weather.service';
 import { CommonModule } from '@angular/common';
 import { WeatherDisplayComponent } from '../weather-display/weather-display.component';
@@ -19,8 +19,11 @@ export class NavbarComponent implements OnInit{
     condition: 'windy',
     icon: 'icons/wind.png'
   }
+  currentDegreeType: string = 'F';
 
-  constructor(private weatherservice: WeatherService) {}
+  constructor(private weatherservice: WeatherService,
+              private renderer: Renderer2
+  ) {}
 
   ngOnInit(): void {
       this.weatherData = this.placeholderData;
@@ -52,5 +55,16 @@ export class NavbarComponent implements OnInit{
 
   getResolvedAddress(addresses: string) {
     return addresses.split(", ").slice(0, -1).join(", ");
+  }
+
+  switchDegreeType(button: HTMLElement): void {
+    if(button.classList.contains('active')) {
+      this.renderer.removeClass(button, 'active');
+      this.renderer.addClass(button, 'nonactive');
+    }
+    else {
+      this.renderer.removeClass(button, 'nonactive');
+      this.renderer.addClass(button, 'active');
+    }
   }
 }

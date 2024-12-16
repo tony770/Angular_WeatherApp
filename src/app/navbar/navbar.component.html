@@ -1,7 +1,13 @@
 <div class="main">
-    <div class="searchBar">
-        <input #location type="text" class="searchInput">
-        <button (click)="searchWeather(location.value)" class="searchBtn">🔍</button>
+    <div class="topContainer">
+        <div class="searchBar">
+            <input #location type="text" class="searchInput">
+            <button (click)="searchWeather(location.value)" class="searchBtn">🔍</button>
+        </div>
+        <div class="degreeContainer">
+            <button #F class="degreeBtn active" id="fahrenheit" (click)="switchDegreeType(F)">F</button>
+            <button #C class="degreeBtn nonactive" id="celcius" (click)="switchDegreeType(C)">C</button>
+        </div>
     </div>
     <div class="weatherDisplay">
         <app-weather-display 
