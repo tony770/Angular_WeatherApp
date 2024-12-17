@@ -58,6 +58,22 @@ export class NavbarComponent implements OnInit{
   }
 
   switchDegreeType(clickedButton: string): void {
-    this.currentTempType = clickedButton;
+    if(this.currentTempType !== clickedButton) {
+      this.currentTempType = clickedButton;
+    }
+    else 
+    {
+      return;
+    }
+
+    const tempHolder = this.weatherData.temp;
+    if(this.currentTempType === 'F') 
+    {
+      this.weatherData.temp = (tempHolder * (9/5)) + 32;
+    }
+    else if(this.currentTempType === 'C')
+    {
+      this.weatherData.temp = (tempHolder - 32) * (5/9);
+    }
   }
 }
