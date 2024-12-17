@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit{
     condition: 'windy',
     icon: 'icons/wind.png'
   }
-  currentDegreeType: string = 'F';
+  currentTempType: string = 'F';
 
   constructor(private weatherservice: WeatherService,
               private renderer: Renderer2
@@ -57,14 +57,7 @@ export class NavbarComponent implements OnInit{
     return addresses.split(", ").slice(0, -1).join(", ");
   }
 
-  switchDegreeType(button: HTMLElement): void {
-    if(button.classList.contains('active')) {
-      this.renderer.removeClass(button, 'active');
-      this.renderer.addClass(button, 'nonactive');
-    }
-    else {
-      this.renderer.removeClass(button, 'nonactive');
-      this.renderer.addClass(button, 'active');
-    }
+  switchDegreeType(clickedButton: string): void {
+    this.currentTempType = clickedButton;
   }
 }

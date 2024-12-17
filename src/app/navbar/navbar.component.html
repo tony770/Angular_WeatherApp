@@ -5,8 +5,11 @@
             <button (click)="searchWeather(location.value)" class="searchBtn">🔍</button>
         </div>
         <div class="degreeContainer">
-            <button #F class="degreeBtn active" id="fahrenheit" (click)="switchDegreeType(F)">F</button>
-            <button #C class="degreeBtn nonactive" id="celcius" (click)="switchDegreeType(C)">C</button>
+            <button [ngClass]="{'active': currentTempType === 'F', 'nonactive': currentTempType !== 'F'}" 
+                    class="degreeBtn" id="fahrenheit" (click)="switchDegreeType('F')">F</button>
+
+            <button [ngClass]="{'active': currentTempType === 'C', 'nonactive': currentTempType !== 'C'}" 
+                    class="degreeBtn" id="celcius" (click)="switchDegreeType('C')">C</button>
         </div>
     </div>
     <div class="weatherDisplay">
